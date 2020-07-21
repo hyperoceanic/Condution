@@ -4,8 +4,8 @@ var $ = require('jquery');
 var chrono = require('chrono-node');
 
 function UI(props) {
-    let currentView = useState("upcoming");
-    let currentPage = useState("");
+    let [currentView, setCurrentView] = useState("upcoming");
+    let [currentPage, setCurrentPage] = useState("");
 
     return (
         <div className={props.theme}>
