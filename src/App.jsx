@@ -42,9 +42,8 @@ class App extends Component {
         // wait a little
         switch (this.state.authState) {
             case "0":
-                return <Auth engine={E} firebase={firebase} />;
             case "1":
-                return <Auth />;
+                return <Auth engine={E} firebase={firebase} flushCallback={()=>this.setState({authState: "2"})} />;
             case "2":
                 return <UI />;
             case "8":

@@ -1,28 +1,50 @@
 import React, { Component } from 'react';
 import './styles/Auth.css';
 var $ = require('jquery');
+var moment = require('moment-timezone');
 
+// TODO! TODO! TODO! Recover password is broken.
 
 class Auth extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {name: "", email: "", password: "", authState: "login"};
+        this.state = {name: "", email: "", password: "", authState: "login", isNASuccess: false};
         this.handleAuth = this.handleAuth.bind(this);
         this.toggleAuthState = this.toggleAuthState.bind(this);
     }
 
-    handleAuth() {
+    async handleAuth() {
         if (this.state.authState == "login") {
-            this.props.firebase.auth().signInWithEmailAndPassword($("#email").val(), $("#password").val()).then(function() {
-                if (this.props.firebase.auth().currentUser.emailVerified){
-                    $("#auth-content-wrapper").fadeOut();
+            if (this.state.isNASuccess) {
+                // Onboarding UI
+                await this.props.engine.db.onBoard(this.props.firebase.auth().currentUser.uid, moment.tz.guess(), $("#name").val());
+                // Onboarding UI End
+                this.setState({isNASuccess: false});
+                this.props.flushCallback();
+            } else {
+                this.props.firebase.auth().signInWithEmailAndPassword($("#email").val(), $("#password").val()).catch(function() {
+                    // Handle Errors here.
+                    $(".auth-upf").addClass("wrong");
+                });
+            }
+        } else {
+            let problem = false;
+            let auth = this;
+            this.props.firebase.auth().createUserWithEmailAndPassword($("#email").val(), $("#password").val()).catch(function(error) {
+                $('#need-verify').html(error.message);
+                problem=true;
+            }).then(function() {
+                if (!problem) {
+                    auth.props.firebase.auth().currentUser.sendEmailVerification();
+                    auth.props.firebase.auth().currentUser.updateProfile({displayName: $("#name").val()});
+                    $('#need-verify').html("Check your inbox. A lovely email is awaiting you.");
+                    auth.setState({isNASuccess: true, authState: "login"});
                 }
-            }).catch(function() {
-                // Handle Errors here.
-                $(".auth-upf").addClass("wrong");
             });
-        } else{
+            $('#recover-password').fadeOut(function() {
+                $('#need-verify').fadeIn();
+            });
         }
     }
 
