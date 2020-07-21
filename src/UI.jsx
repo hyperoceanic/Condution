@@ -15,7 +15,6 @@ function UI(props) {
             <div id="left-menu">
                 <Menu engine={props.engine} firebase={props.firebase} user={props.user} viewLoadCallback={function(view, id) { setCurrentPage(id); setCurrentView(view) }}/>
             </div>
-            { /* <input title="Add a task on enter" id="quickadd" type="text" autocomplete="off" value="" placeholder="Add something to the inbox?" /> */}
             <div id="content-area" className="scrollable" style={{backgroundColor: "var(--background)"}}>
                 {{
                     "upcoming": (
