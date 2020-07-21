@@ -1,52 +1,68 @@
-<h1>#!/Shabang | Condution</h1>
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<a href=""><img src="https://img.shields.io/badge/Maintenance%20Level-Actively%20Developed-brightgreen.svg"/> </a>
-<a href="https://github.com/Shabang-Systems/Condution/releases/"><img src="https://img.shields.io/github/package-json/v/shabang-systems/condution"/> </a>
-<a href=""><img src="https://img.shields.io/github/license/shabang-systems/condution"/> </a>
+## Available Scripts
 
-**This. Is. Condution.** A personal project management system that makes sense and will not burn your pockets out.
+In the project directory, you can run:
 
-***
+### `yarn start`
 
-## The App
-Condution is a wonderful electron app built to create a perfectly easy task-management dashboard that's powerful, yet also simple. The inspiration of the project spanned from our long frustration with the current state of productivity software on the internet — they are expensive and often complicated to use.
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Condution attempts to change this. We want to create an open-source productivity/task-management app that is both simple, and, well, free (but we do take [Patreon](https://www.patreon.com/condution) donations though).
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-<p align="center">
-  <img src="https://condution.shabang.cf/images/pic06.png" />
-  <i>This. Is. (Actually.) Condution.</i>
-</p>
+### `yarn test`
 
-### Features 
-#### The Standard Spheal
-Create tasks, manage them in projects, add some tags, set due dates, and repeat them at will. Condution has the whole nine-yards of the core list-making features nailed so you could create and edit anything from grocery lists to hundred-task projects.
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-#### Due + Start Dates (and Times!)
-Yes, you heard it right! Unlike some of the other apps out there, we know that timing is important to people! Every task is hidden until a certain *time* and due at precisely at a *time*, so your know day could be managed right down to your needs.
+### `yarn build`
 
-#### Sequential and Parallel Projects!
-Some tasks can't really be done without others before it being done first, and we understand that. Tasks blocked in a sequential project could be hidden if needed, and shown again when ready.
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-#### Filters and Perspectives
-Filter tasks by tag? Check. Filter by projects? Check. Filter by due date? Check. Filter by due date and project with tags and sort tasks based on defer date while hiding eveything that's not avaliable? You bet.
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-## The Team
-We are Shabang, a software development company aiming to design innovative solutions for interesting issues with fun and creative products.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-We happen also to be a group of students from the silicon valley wanting to make this world slightly better with technology.
+### `yarn eject`
 
-## Building
-*Given that you are a codey child, you should be able to figure it out ;)*
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-Just kidding, we will add instructions for Firebase connection, buliding, and compiling soon.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-## Contributing?
-We love contributions! You are welcome to contribute, just keep in mind that we prefer 4 spaces over tabs.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-## Thank you!
-Thank you for supporting us on this project. We really hope that this will be something useful. 
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-***
+## Learn More
 
-Designed with :heart: and :green_salad: by #!/Shabang.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `yarn build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
