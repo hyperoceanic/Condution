@@ -58,7 +58,7 @@ class Auth extends Component {
 
     render() {
         return (
-            <div id="auth-content-wrapper" className="condutiontheme-default-light" style={{height:"100%"}}>
+            <div id="auth-content-wrapper" className={this.props.theme} style={{height:"100%"}}>
                 <div id="auth-left-menu">
                     <div className="menu-area" style={{height:"100%"}}>
                         <div className="auth-component"></div>

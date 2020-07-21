@@ -1,0 +1,59 @@
+#left-menu{
+    grid-column-start: 1;
+    grid-column-end: 1;
+    background-color: var(--menu-background);
+    padding: 0 10px 10px 10px;
+    overflow: hidden;
+}
+
+    @media (max-width: 575px) { 
+        #left-menu{
+            position: fixed;
+            height: 100%;
+            z-index: 888808;
+            resize: none;
+            width: 250px;
+            left: -260px;
+        }
+    }
+
+    @media (min-width: 576px) { 
+        #left-menu{
+            position: fixed;
+            height: 100%;
+            z-index: 0;
+            width: 200px;
+            left: 0 !important;
+        }
+    }
+
+    @media (min-width: 768px) { 
+        #left-menu{
+            position:fixed;
+            height: 100%;
+            z-index: 0;
+            width: 200px;
+            left: 0 !important;
+        }
+    }
+
+    @media (min-width: 992px) { 
+        #left-menu{
+            position: fixed;
+            height: 100%;
+            z-index: 0;
+            width: 220px;
+            left: 0 !important;
+        }
+    }
+
+    @media (min-width: 1200px) { 
+        #left-menu{
+            position: fixed;
+            height: 100%;
+            z-index: 0;
+            width: 220px;
+            left: 0 !important;
+        }
+    }
+
