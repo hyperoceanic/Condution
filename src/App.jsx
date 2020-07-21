@@ -45,7 +45,7 @@ class App extends Component {
             case "1":
                 return <Auth engine={E} firebase={firebase} flushCallback={()=>this.setState({authState: "2"})} theme="condutiontheme-default-light" />;
             case "2":
-                return <UI engine={E} theme="condutiontheme-default-light" />;
+                return <UI engine={E} firebase={firebase} theme="condutiontheme-default-light" user={firebase.auth().currentUser.uid} />;
             case "8":
                 return <div>Quick and dirty loader</div>;
         }
