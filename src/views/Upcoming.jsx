@@ -9,8 +9,11 @@ class Upcoming extends Component {
     constructor(props) {
         super(props);
         let pPandT, possibleProjects, possibleTags, possibleProjectsRev, possibleTagsRev, nextSevenDSes, possiblePerspectives, inboxandDS, avalibility, projectDB;
-        this.state = { pPandT, possibleProjects, possibleTags, possibleProjectsRev, possibleTagsRev, nextSevenDSes, possiblePerspectives, inboxandDS, avalibility, projectDB };
+        this.state = { pPandT, possibleProjects, possibleTags, possibleProjectsRev, possibleTagsRev, nextSevenDSes, possiblePerspectives, inboxandDS, avalibility, projectDB, daterowLocation: 0 };
         this.update = this.update.bind(this);
+        let greetings = ["Hello there,", "Hey,", "What's up,", "Howdy,", "Welcome,", "Yo!"];
+        this.greeting = greetings[Math.floor(Math.random() * greetings.length)];
+
     }
 
     async update() {
@@ -49,18 +52,44 @@ class Upcoming extends Component {
                 d.setDate(d.getDate()+1);
             }
         });
+
+        $(document).on('click', '.upcoming-daterow-item', function(e) {
+            $("#upcoming-daterow").children().each(function() {
+                $(this).removeClass("upcoming-daterow-active");
+                $(this).addClass("upcoming-daterow-normal");
+            });
+            let original = $(this);
+            original.removeClass("upcoming-daterow-normal");
+            original.addClass("upcoming-daterow-active");
+            let cat = Number(original.attr("id").split("-")[2]);
+            ui.setState({daterowLocation: 0});
+            let d = new Date();
+            //console.log(d, cat, d.getDate()+);
+            d.setDate(d.getDate()+cat);
+            //console.log(d);
+            if (cat == 0) {
+                $("#ds-text").html("Due Soon");
+                $("#duesoon-badge").show();
+                $("#ds-daterowfield").hide();
+            } else {
+                $("#ds-text").html("Due");
+                $("#duesoon-badge").hide();
+                $("#ds-daterowfield").css("display", "inline-block");
+                $("#duesoon-ondate").html(d.toLocaleDateString("en-US", { weekday: 'short', day: 'numeric'}));
+            }
+        });
+
+
     }
 
     render() {
-        let greetings = ["Hello there,", "Hey,", "What's up,", "Howdy,", "Welcome,", "Yo!"];
-        let greeting = greetings[Math.floor(Math.random() * greetings.length)];
         return (
         <div style={{margin: 1}}>
             <div class="sandwich"><i class="fas fa-bars"></i></div>
             <div class="perspective-title"><i class="fas fa-chevron-circle-right"></i><t class="perspective-titleword">Upcoming</t></div>
             <div style={{padding: "0 0 7px 0"}}>
                 <hr class="perspective-divider"/>
-                <div id="upcoming-header"><t id="greeting">{greeting}</t><t id="greeting-name">{this.props.firebase.auth().currentUser.displayName}</t>&middot;<t id="greeting-date">{(new Date().toLocaleDateString("en-GB", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }))}</t></div>
+                <div id="upcoming-header"><t id="greeting">{this.greeting}</t><t id="greeting-name">{this.props.firebase.auth().currentUser.displayName}</t>&middot;<t id="greeting-date">{(new Date().toLocaleDateString("en-GB", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }))}</t></div>
             </div>
             <div id="upcoming-daterow">
                 <div id="upcoming-daterow-0" class="upcoming-daterow-item upcoming-daterow-active">
