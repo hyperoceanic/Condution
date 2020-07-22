@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import '../styles/Upcoming.css';
+
+import Task from '../components/Task.jsx';
+
 var $ = require('jquery');
 var moment = require('moment-timezone');
 
@@ -79,6 +82,27 @@ class Upcoming extends Component {
             }
         });
 
+        /*Promise.all(*/
+                //// load inbox tasks
+                //inboxandDS[0].map(task => taskManager.generateTaskInterface("inbox", task)),
+                //// load due soon tasks
+                //(pageIndex.dateSelected == 0 ? inboxandDS[1] : nextSevenDSes[pageIndex.dateSelected]).map(task => taskManager.generateTaskInterface("due-soon", task))
+            //).then(function() {
+                //// update upcoming view headers
+                //if (inboxandDS[0].length === 0) {
+                    //$("#inbox-subhead").hide();
+                    //$("#inbox").hide();
+                //} else {
+                    //$("#inbox-subhead").show();
+                    //$("#inbox").show();
+                    //$("#unsorted-badge").html('' + inboxandDS[0].length);
+                //}
+                //if (inboxandDS[1].length === 0) {
+                    //$("#duesoon-badge").html('0');
+                //} else {
+                    //$("#duesoon-badge").html('' + inboxandDS[1].length);
+                //}
+            /*});*/
 
     }
 
@@ -153,7 +177,9 @@ class Upcoming extends Component {
             <div id="inbox-subhead" class="perspective-subhead">
                 Unsorted <div id="unsorted-badge" class="badge" style={{transform: "translate(3px, -2px)"}}>0</div>
             </div>
-            <div id="inbox" class="upcoming-section"> </div>
+                <div id="inbox" class="upcoming-section"> 
+                
+                </div>
             <div id="ds-subhead" class="perspective-subhead">
                 <t id="ds-text">Due Soon</t> <div id="duesoon-badge" class="badge" style={{transform: "translate(3px, -2px)"}}>0</div> <div id="ds-daterowfield" style={{display:"none", transform: "translateY(-1px)"}}><div style={{fontWeight: 600, display: "inline-block", fontSize: "10px"}}>@</div> <div id="duesoon-ondate"></div> </div>
             </div>
